@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<h2>FileUpload</h2>
+<form action="" th:action="@{'/fileupload'}" th:object="${user}" method="post">
+ <div class="form-group">
+   <label for="fileupload">File Upload(.CSV)</label>
+   <input type="file" class="form-control" id="email">
+ </div>
+ <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="col-md-12">
+<h2>All Users</h2>
+<table class="table table-bordered">
+    <thread>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>File Type</th>
+       </tr>
+     </thread>
+     <tbody>
+       <tr th:each="user:${users}">
+         <td th:text="${user.name}">John</td>
+         <td th:text="${user.email}">john@example.com</td>
+         <td th:text="${user.phoneNumber}">xxxxxxx789</td>
+         <td th:text="${user.fileType}">csv</td>
+       </tr>
+      </tbody>
+    </table>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
